@@ -8,18 +8,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="fixacceptor.cfg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="QuickFIXn.Core" Version="1.14.1" />
     <PackageReference Include="QuickFIXn.FIX44" Version="1.14.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="fixacceptor.cfg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
