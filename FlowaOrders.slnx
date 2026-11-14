@@ -1,1 +1,12 @@
-<Solution />
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Domain/Domain.csproj" />
+    <Project Path="src/OrderAccumulator/OrderAccumulator.csproj" />
+    <Project Path="src/OrderGenerator.Api/OrderGenerator.Api.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Domain.Tests/Domain.Tests.csproj" />
+    <Project Path="tests/OrderAccumulator.Tests/OrderAccumulator.Tests.csproj" />
+    <Project Path="tests/OrderGenerator.Api.Tests/OrderGenerator.Api.Tests.csproj" />
+  </Folder>
+</Solution>
