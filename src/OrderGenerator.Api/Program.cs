@@ -9,6 +9,9 @@ builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
+builder.Services.AddSingleton<IQuickFixSession, QuickFixSession>();
+builder.Services.AddSingleton<FixOrderGateway>();
+builder.Services.AddSingleton<IOrderGateway>(sp => sp.GetRequiredService<FixOrderGateway>());
 builder.Services.AddSingleton<IOrderHistoryRepository, InMemoryOrderHistoryRepository>();
 builder.Services.AddHostedService<FixInitiatorService>();
 
