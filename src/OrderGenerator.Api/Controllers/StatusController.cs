@@ -9,7 +9,7 @@ namespace OrderGenerator.Api.Controllers;
 public class StatusController(IOrderGateway orderGateway) : ControllerBase
 {
     [HttpGet]
-    public async Task<ActionResult<IReadOnlyList<OrderResponse>>> Get()
+    public ActionResult<OrderResponse> Get()
     {
         return Ok(new StatusResponse(orderGateway.IsConnected));
     }

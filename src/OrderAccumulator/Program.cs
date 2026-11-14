@@ -22,7 +22,7 @@ Console.CancelKeyPress += (_, e) =>
 };
 
 acceptor.Start();
-Console.WriteLine("OrderAccumulater waiting for FIX 4.4 orders. Press Ctrl+C to exit.");
+Console.WriteLine("OrderAccumulator waiting for FIX 4.4 orders. Press Ctrl+C to exit.");
 
 shutdown.Wait();
 acceptor.Stop();

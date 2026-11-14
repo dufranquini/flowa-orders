@@ -26,6 +26,7 @@ public class FixInitiatorService(FixOrderGateway orderGateway) : IHostedService
 
     public Task StopAsync(CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        _initiator?.Stop();
+        return Task.CompletedTask;
     }
 }

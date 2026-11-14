@@ -16,6 +16,7 @@ public class OrdersController(IOrderHistoryRepository orderHistoryRepository, IO
         return Ok(orders);
     }
 
+    [HttpPost]
     public async Task<ActionResult> Post(NewOrderRequest request, CancellationToken cancellation)
     {
         try
