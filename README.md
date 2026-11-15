@@ -1,26 +1,29 @@
-# Project Empty Template
+# FlowaOrders
+Duas aplicações em C# que trocam ordens via protocolo FIX 4.4: o OrderGenerator envia ordens a partir de um formulário web, e o OrderAccumulator calcula a exposição financeira por símbolo e rejeita ordens que ultrapassem o limite de R$ 100.000.000.
 
-Este é um repositório de exemplo para você começar a desenvolver a questão, leia com atenção os requisitos do enunciado da questão na plataforma e seguia as boas práticas sobre como utilizar este repositório.
+
+# Tecnologias
+- .NET 10 / API
+- QuickFIX/n 1.14 (FIX 4.4)
+- React 19
 
 
-## Readme do Repositório
+# Como rodar
 
-- Deve conter o título do projeto
-- Uma descrição sobre o projeto em frase
-- Deve conter uma lista com linguagem, framework e/ou tecnologias usadas
-- Como instalar e usar o projeto (instruções)
-- Não esqueça o [.gitignore](https://www.toptal.com/developers/gitignore)
-- Se está usando github pessoal, referencie que é um challenge by coodesh:  
+```bash
+# 1. OrderAccumulator (escuta FIX na porta 5001)
+dotnet run --project src/OrderAccumulator
+
+# 2. OrderGenerator API (http://localhost:5285)
+dotnet run --project src/OrderGenerator.Api --launch-profile http
+
+#3. Frontend (http://localhost:5173)
+cd frontend
+npm install
+npm run dev
+```
+
+Abra http://localhost:5173 e envie uma ordem.
+
 
 >  This is a challenge by [Coodesh](https://coodesh.com/)
-
-## Finalização e Instruções para a Apresentação
-
-1. Adicione o link do repositório com a sua solução na questão na plataforma
-2. Verifique se o Readme está bom e faça o commit final em seu repositório;
-3. Envie e aguarde as instruções para seguir. Caso o teste tenha apresentação de vídeo, dentro da tela de entrega será possível gravar após adicionar o link do repositório. Sucesso e boa sorte. =)
-
-
-## Suporte
-
-Para tirar dúvidas sobre o processo envie uma mensagem diretamente a um especialista no chat da plataforma. 
