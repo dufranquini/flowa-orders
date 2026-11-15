@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace OrderAccumulator.Tests;
+﻿namespace OrderAccumulator.Tests;
 
 internal class AccumulatorApplicationTests
 {

@@ -30,8 +30,7 @@ public sealed class NewOrderSingleHandler(FinancialExposure exposure)
             return Rejected(order, OrdRejReason.OTHER, "");
 
         //TODO: Validate order
-
-        Exposure result = exposure.Apply(symbol, side.Value, price, (int)quantity);
+        Exposure result = exposure.Apply(symbol, side.Value, price, (int)quantity);
 
         if (!result.Accepted)
             return Rejected(order, OrdRejReason.ORDER_EXCEEDS_LIMIT,
@@ -52,7 +51,7 @@ public sealed class NewOrderSingleHandler(FinancialExposure exposure)
         return report;
     }
 
-    private ExecutionReport CreateReport(NewOrderSingle order, char execType, char ordStatus)
+    private ExecutionReport CreateReport(NewOrderSingle order, char execType, char ordStatus)
     {
         var id = Interlocked.Increment(ref _sequence);
 
