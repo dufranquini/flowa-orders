@@ -1,6 +1,26 @@
 @OrderGenerator.Api_HostAddress = http://localhost:5285
 
-GET {{OrderGenerator.Api_HostAddress}}/weatherforecast/
+GET {{OrderGenerator.Api_HostAddress}}/api/status
 Accept: application/json
 
 ###
+POST {{OrderGenerator.Api_HostAddress}}/api/orders
+Content-Type: application/json
+
+{
+  "symbol": "PETR4",
+  "side": "Buy",
+  "quantity": 100,
+  "price": 35.10
+}
+
+###
+POST {{OrderGenerator.Api_HostAddress}}/api/orders
+Content-Type: application/json
+
+{
+  "symbol": "PETR4",
+  "side": "Sell",
+  "quantity": 50,
+  "price": 35.83
+}
