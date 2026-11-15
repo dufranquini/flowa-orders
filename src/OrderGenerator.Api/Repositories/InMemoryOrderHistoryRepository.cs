@@ -4,6 +4,7 @@ namespace OrderGenerator.Api.Repositories;
 
 public class InMemoryOrderHistoryRepository : IOrderHistoryRepository
 {
+    // TODO: implementar thread-safe - lock
     private readonly List<OrderResponse> _orders = [];
 
     public Task AddAsync(OrderResponse order, CancellationToken cancellationToken = default)

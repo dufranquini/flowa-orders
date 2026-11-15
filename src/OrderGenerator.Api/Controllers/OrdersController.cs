@@ -12,20 +12,21 @@ public class OrdersController(IOrderHistoryRepository orderHistoryRepository, IO
     [HttpGet]
     public async Task<ActionResult<IReadOnlyList<OrderResponse>>> GetAll(CancellationToken cancellation)
     {
-        var orders = await orderHistoryRepository.GetAllAsync();
+        var orders = await orderHistoryRepository.GetAllAsync(cancellation);
         return Ok(orders);
     }
 
     [HttpPost]
-    public async Task<ActionResult> Post(NewOrderRequest request, CancellationToken cancellation)
+    public async Task<ActionResult<OrderResponse>> Post(NewOrderRequest request, CancellationToken cancellation)
     {
+        //TODO: incluir validação do request
         try
         {
             OrderResponse response = await orderGateway.SendAsync(request, cancellation);
             await orderHistoryRepository.AddAsync(response, cancellation);
             return Ok(response);
         }
-        catch (Exception ex)
+        catch (Exception ex)//TODO: tratar exceções específicas do FIX e do repositório
         {
             return Problem(ex.Message, statusCode: StatusCodes.Status500InternalServerError, title: "Error sending order");
         }

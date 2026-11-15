@@ -17,7 +17,7 @@ public class FixOrderGateway(IQuickFixSession session, ILogger<FixOrderGateway> 
 
     public async Task<OrderResponse> SendAsync(NewOrderRequest request, CancellationToken cancellationToken)
     {
-        var sessionId = _sessionId ?? throw new Exception("Not connected to FIX session");
+        var sessionId = _sessionId ?? throw new Exception("Not connected to FIX session");//TODO: criar exception customizada
 
         var clOrdId = Guid.NewGuid().ToString("N");
         var completion = new TaskCompletionSource<OrderResponse>(TaskCreationOptions.RunContinuationsAsynchronously);

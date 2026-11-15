@@ -9,7 +9,7 @@ namespace OrderGenerator.Api.Controllers;
 public class StatusController(IOrderGateway orderGateway) : ControllerBase
 {
     [HttpGet]
-    public ActionResult<OrderResponse> Get()
+    public ActionResult<StatusResponse> Get()
     {
         return Ok(new StatusResponse(orderGateway.IsConnected));
     }
